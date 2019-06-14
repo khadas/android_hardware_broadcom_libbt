@@ -979,7 +979,10 @@ void hw_config_cback(void *p_mem)
             case HW_CFG_SET_BD_ADDR:
                 ALOGI("vendor lib fwcfg completed");
                 bt_vendor_cbacks->dealloc(p_buf);
-                bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
+                //bt_vendor_cbacks->fwcfg_cb(BT_VND_OP_RESULT_SUCCESS);
+                hw_sco_config();
+                start_fwcfg_cbtimer();
+
 
                 hw_cfg_cb.state = 0;
 
