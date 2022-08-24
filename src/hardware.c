@@ -526,6 +526,14 @@ static uint8_t hw_config_findpatch(char *p_chip_id_str)
                           FW_PATCHFILE_EXTENSION_LEN) \
                      ) == 0))
                 {
+                    char prop_value[100];
+                    property_get("ro.target.product", prop_value, "default");
+                    if(strcmp(prop_value,"vehicle")==0)
+                    {
+                        if(strstr(dp->d_name, "BCM4359C0")!=NULL)
+                            strcpy(dp->d_name,"BCM4359C0-CYW.hcd");
+                    }
+
                     ALOGI("Found patchfile: %s/%s", \
                         fw_patchfile_path, dp->d_name);
 
