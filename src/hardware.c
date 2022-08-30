@@ -532,6 +532,9 @@ static uint8_t hw_config_findpatch(char *p_chip_id_str)
                     {
                         if(strstr(dp->d_name, "BCM4359C0")!=NULL)
                             strcpy(dp->d_name,"BCM4359C0-CYW.hcd");
+                    } else {
+                        if(strstr(dp->d_name, "CYW")!=NULL)
+                            strcpy(dp->d_name,"BCM4359C0.hcd");
                     }
 
                     ALOGI("Found patchfile: %s/%s", \
