@@ -528,7 +528,7 @@ static uint8_t hw_config_findpatch(char *p_chip_id_str)
                 {
                     char prop_value[100];
                     property_get("ro.target.product", prop_value, "default");
-                    if(strcmp(prop_value,"vehicle")==0)
+                    if((strcmp(prop_value,"vehicle")==0) || (strcmp(prop_value,"car")==0))
                     {
                         if(strstr(dp->d_name, "BCM4359C0")!=NULL)
                             strcpy(dp->d_name,"BCM4359C0-CYW.hcd");
